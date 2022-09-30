@@ -1,6 +1,6 @@
 # HM Cocktails 
 ### Samuel Martinez /  Santiago Abadia 
->basic commands
+#### Basic commands  
 >   python -m django startproject myproject  
 >   python manage.py runserver  
 >   python manage.py migrate  
