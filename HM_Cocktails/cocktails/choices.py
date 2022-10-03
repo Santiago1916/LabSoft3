@@ -1,4 +1,4 @@
 SinoCon = (
-    {'Si' , 'Licor con alcohol'},
-    {'No' , 'Licor sin alcohol'},
+    ('Si', 'Cocteles Con alcohol'),
+    ('No', 'Cocteles Sin alchohol')
 )
