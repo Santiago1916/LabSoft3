@@ -38,7 +38,7 @@ class Ingrediente(models.Model):
     def __str__(self):
         return self.componenteDatos()
         
-class favoritos(models.Model):
+class Favoritos(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID') 
     idUsuario = models.ForeignKey(Usuario, null = True, blank = True, on_delete = models.CASCADE)
     idCoctel = models.ForeignKey(Coctel, null = True, blank = True, on_delete = models.CASCADE)
