@@ -3,12 +3,12 @@ from .choices import SinoCon
 
 # Create your models here.
 class usuario(models.Model):
+    id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID')                
     nombre = models.CharField(max_length = 50, verbose_name = 'Nombre usuario')
     apellido = models.CharField(max_length = 50, verbose_name = 'Apellido usuario')
     nombreDeUsuario = models.CharField(max_length = 50, verbose_name = 'Nombre de usuario')
     fechaNacimiento = models.DateField(verbose_name= 'Fecha nacimiento usuario')
-    """idListaFavoritos = models.ForeignKey(favoritos, null = True, blank = True)"""
-    campo = models.CharField(max_length = 50, verbose_name = 'Campo Usuario')
+    '''idListaFavoritos = models.ForeignKey(favoritos, null = True, blank = True)'''
 
     def usuarioDatos(self):
         return "{}, {} {} {}".format(self.id, self.nombreDeUsuario, self.nombre, self.apellido)
@@ -17,6 +17,7 @@ class usuario(models.Model):
         return self.usuarioDatos()
 
 class componente(models.Model):
+    id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID') 
     nombre = models.CharField(max_length = 50, verbose_name = 'Nombre componente')
     tipoComponente = models.CharField(max_length = 50, verbose_name = 'Tipo componente')
 
@@ -27,10 +28,11 @@ class componente(models.Model):
         return self.componenteDatos()
 
 class coctel(models.Model):
+    id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID') 
     nombre = models.TextField(blank = True)
     idComponente = models.ForeignKey(componente, null = True, blank = True, on_delete = models.CASCADE)
     sinoAlcohol =  models.CharField(max_length = 2, choices = SinoCon, default = 'Si')
-    '''favorito = models.ForeignKey(favoritos, null = True, blank = True)'''
+    '''favorito = models.ForeignKey(models.favoritos, null = True, blank = True)'''
 
     def coctelDatos(self):
         return "{} {}, {}".format(self.id,  self.nombre , self.sinoAlcohol)
@@ -39,6 +41,7 @@ class coctel(models.Model):
         return self.coctelDatos()
 
 class favoritos(models.Model):
+    id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID') 
     idUsuario = models.ForeignKey(usuario,null = True, blank = True, on_delete = models.CASCADE)
     idCoctel = models.ForeignKey(coctel,null = True, blank = True, on_delete = models.CASCADE)
 
