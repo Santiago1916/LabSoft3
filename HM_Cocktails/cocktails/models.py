@@ -14,7 +14,6 @@ class Usuario(models.Model):
 
     def __str__(self):
         return self.usuarioDatos()
-        
 class Coctel(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID') 
     nombre = models.TextField(blank = True)
@@ -38,7 +37,7 @@ class Ingrediente(models.Model):
 
     def __str__(self):
         return self.componenteDatos()
-
+        
 class favoritos(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID') 
     idUsuario = models.ForeignKey(Usuario, null = True, blank = True, on_delete = models.CASCADE)
@@ -49,6 +48,7 @@ class favoritos(models.Model):
     
     def __str__(self):
         return self.favoritosDatos()
+
 
 """ Relaciones Foraneas entre modelos -> https://www.youtube.com/watch?v=y89VHGofsDQ"""
 '''Django & PostgreSQL CRUD -> https://www.youtube.com/watch?v=_zNZ1lK6RTA'''
