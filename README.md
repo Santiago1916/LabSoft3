@@ -6,6 +6,6 @@
 >   python manage.py migrate  
 >   python manage.py makemigrations  
 
-#### SuperUser
->   user -> admin  
->   password -> 1916  
+#### E-R Model diagram
+
+![Image text](https://github.com/Santiago1916/LabSoft3/blob/main/Model%20diagram.png)
