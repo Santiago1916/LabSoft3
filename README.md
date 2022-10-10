@@ -7,5 +7,5 @@
 >   python manage.py makemigrations  
 
 #### E-R Model diagram
-
+>  
 ![Image text](https://github.com/Santiago1916/LabSoft3/blob/main/Model%20diagram.png)
