@@ -1,5 +1,4 @@
 from django.db import models
-from .choices import SinoCon
 
 # Create your models here.
 class Usuario(models.Model):
@@ -14,10 +13,11 @@ class Usuario(models.Model):
 
     def __str__(self):
         return self.usuarioDatos()
+        
 class Coctel(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID') 
-    nombre = models.TextField(blank = True)
-    sinoAlcohol =  models.CharField(max_length = 2, choices = SinoCon, default = 'Si')
+    nombre = models.TextField(max_length = 50, verbose_name = 'Nombre Coctel')
+    sinoAlcohol =  models.BooleanField(default = 'True')
 
     def coctelDatos(self):
         return "{} {}, {}".format(self.id,  self.nombre , self.sinoAlcohol)
@@ -25,15 +25,36 @@ class Coctel(models.Model):
     def __str__(self):
         return self.coctelDatos()
 
-class Ingrediente(models.Model):
+class Licor(models.Model):
+    id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID')
+    nombre = models.TextField(max_length = 50, verbose_name = 'Nombre del licor')
+    cantidad = models.IntegerField(verbose_name = 'Cantidad en ml del licor')
+
+    def licorDatos(self):
+        return "{}, {} {}".format(self.id,  self.nombre , self.cantidad)
+    
+    def __str__(self):
+        return self.coctelDatos()
+
+class Diluidores(models.Model):
+    id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID')
+    nombre = models.TextField(max_length = 50, verbose_name = 'Nombre del diluidor')
+    cantidad = models.IntegerField(verbose_name = 'Cantidad')
+
+    def diluidoresDatos(self):
+        return "{}, {} {}".format(self.id,  self.nombre , self.cantidad)
+    
+    def __str__(self):
+        return self.diluidoresDatos()
+
+class ComponentesCoctel(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID')
     idCoctel = models.ForeignKey(Coctel, null = True, blank = True, on_delete = models.CASCADE)
-    nombre = models.CharField(max_length = 50, verbose_name = 'Nombre del coctel')
-    cantidad = models.CharField(max_length = 50, verbose_name = 'Cantidad del alcohol')
-    tipoIngrediente = models.CharField(max_length = 50, verbose_name = 'Tipo componente')
+    idLicorBase = models.ForeignKey(Licor, null = True, blank = True, on_delete = models.CASCADE)
+    idDiluidores = models.ForeignKey(Diluidores, null = True, blank = True, on_delete = models.CASCADE)
 
     def componenteDatos(self):
-        return "{}, {} {}".format(self.id, self.nombre, self.tipoComponente)
+        return "{} {}, {} {} {}".format(self.id, self.idCoctel, self.idLicorBase, self.idLicorSecundario, self.idDiluidores)
 
     def __str__(self):
         return self.componenteDatos()
@@ -48,6 +69,8 @@ class Favoritos(models.Model):
     
     def __str__(self):
         return self.favoritosDatos()
+
+
 
 
 """ Relaciones Foraneas entre modelos -> https://www.youtube.com/watch?v=y89VHGofsDQ"""
