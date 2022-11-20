@@ -9,15 +9,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <body>
-        <a href="inicio.html">
-            <img src="Logo Ragazza Full.PNG" width="395px" height="156px" style="float: left;">
+        <a href="/">
+            <img src="/HM_Cocktails/Images/HmCocktails.png" width="156px" height="156px" style="float: left;">
         </a>
         <div class="row" style="align-items: center;">
             <div class="col-sm-12 p-5 bg-black text-white">
                 <form>
                     <div class="row" style="align-items: center;">
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Busca tus productos favoritos">
+                            <input type="text" class="form-control" placeholder="Busca tus cocteles aqui">
                         </div>
                         <div class="col-md-1">
                             <a class="btn btn-black me-2" href="Carrito.html" role="button">
@@ -27,7 +27,7 @@
                             </a>
                         </div>
                         <div class="col-md-2">
-                            <a class="btn btn-primary me-2" href="Log-in.html" role="button">Log-In</a>
+                            <a class="btn btn-primary me-2" href="login/" role="button">Log-In</a>
                         </div>
                     </div>
                 </form>
@@ -83,56 +83,16 @@
                 </div>
             </div>
         </div>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-sm-4">
-                    <img src="Bolso_1.jpg" width="195px" height="195px">
-                    <p></p>
-                    <h5>Bolso Negro</h5>
-                    <p>$$$$$$</p>
-                    <a class="btn btn-primary me-2" href="Producto.html" role="button" style="float: center;">Log-In</a>
-                </div>
-                <div class="col-sm-4">
-                    <img src="Bolso_2.jpg" width="195px" height="195px">
-                    <p></p>
-                    <h5>Maletin Negro</h5>
-                    <p>$$$$$$</p>
-                    <a class="btn btn-primary me-2" href="Producto.html" role="button" style="float: center;">Log-In</a>
-                </div>
-                <div class="col-sm-4">
-                    <img src="Bolso_3.jpg" width="195px" height="195px">
-                    <p></p>
-                    <h5>Bolso de Mano Beige</h5>
-                    <p>$$$$$$</p>
-                    <a class="btn btn-primary me-2" href="Producto.html" role="button" style="float: center;">Log-In</a>
-                </div>
-            </div>
-        </div>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-sm-4">
-                    <img src="Bolso_1.jpg" width="195px" height="195px">
-                    <p></p>
-                    <h5>Bolso Negro</h5>
-                    <p>$$$$$$</p>
-                    <a class="btn btn-primary me-2" href="Producto.html" role="button" style="float: center;">Log-In</a>
-                </div>
-                <div class="col-sm-4">
-                    <img src="Bolso_2.jpg" width="195px" height="195px">
-                    <p></p>
-                    <h5>Maletin Negro</h5>
-                    <p>$$$$$$</p>
-                    <a class="btn btn-primary me-2" href="Producto.html" role="button" style="float: center;">Log-In</a>
-                </div>
-                <div class="col-sm-4">
-                    <img src="Bolso_3.jpg" width="195px" height="195px">
-                    <p></p>
-                    <h5>Bolso de Mano Beige</h5>
-                    <p>$$$$$$</p>
-                    <a class="btn btn-primary me-2" href="Producto.html" role="button" style="float: center;">Log-In</a>
-                </div>
-            </div>
-        </div>
+        {% for pregunta in list %} 
+    <div class="pregresp">
+     <div class="pregunta">{{pregunta}}<br />
+     </div>
+    <div class="respuestas">
+        <input type="radio" name="preg1" value="1"/> Sí<br />
+        <input type="radio" name="preg2" value="2" /> No<br />
+    </div>
+    </div>
+    {% endfor %}
     </body>
 
 </head>
