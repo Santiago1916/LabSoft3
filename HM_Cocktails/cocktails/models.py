@@ -29,7 +29,7 @@ class Coctel(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID') 
     nombreCoctel = models.TextField(max_length = 50, verbose_name = 'Nombre Coctel')
     sinoAlcohol =  models.BooleanField(default = 'True')
-    categoria = models.ForeignKey(CategoriaCoctel, on_delete=models.CASCADE, related_name="Cocteles categoria")
+    categoria = models.ForeignKey(CategoriaCoctel, on_delete=models.CASCADE, related_name="categoria")
 
     def coctelDatos(self):
         return "{} {}, {}".format(self.id,  self.nombre , self.sinoAlcohol)
@@ -38,7 +38,7 @@ class Coctel(models.Model):
         return f'{self.nombre}- categoria: {self.categoria}'
 
 class Imagen(models.Model):
-    coctel = models.ForeignKey(Coctel, on_delete=models.CASCADE, related_name='Obtener Imagen')
+    coctel = models.ForeignKey(Coctel, on_delete=models.CASCADE, related_name='Imagen')
     imagen = models.ImageField(upload_to='images/')
 
     def __str__(self):
@@ -69,8 +69,8 @@ class Diluidores(models.Model):
 class ComponentesCoctel(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID')
     idCoctel = models.ForeignKey(Coctel, null = True, blank = True, on_delete = models.CASCADE)
-    idLicorBase = models.ManyToManyField(Licor, null = True, blank = True)
-    idDiluidores = models.ManyToManyField(Diluidores, null = True, blank = True)
+    idLicorBase = models.ManyToManyField(Licor)
+    idDiluidores = models.ManyToManyField(Diluidores)
 
     def componenteDatos(self):
         return "{} {}, {} {} {}".format(self.id, self.idCoctel, self.idLicorBase, self.idLicorSecundario, self.idDiluidores)
@@ -80,8 +80,8 @@ class ComponentesCoctel(models.Model):
         
 class Favoritos(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID') 
-    idUsuario = models.ForeignKey(Usuario, null = True, blank = True, on_delete = models.CASCADE)
-    idCoctel = models.ForeignKey(Coctel, null = True, blank = True, on_delete = models.CASCADE)
+    idUsuario = models.ManyToManyField(Usuario)
+    idCoctel = models.ManyToManyField(Coctel)
 
     def favoritosDatos(self):
         return "{}, {}, {}".format(self.id,  self.idUsuario , self.idCoctel)

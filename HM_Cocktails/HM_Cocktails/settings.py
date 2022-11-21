@@ -20,13 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure--x4cl4m=0c1c=dfl+5&gwbis6p5+fe-hmc1z96e)!(m4tknlo("
+SECRET_KEY = "django-insecure-p4k^q$$(8^(-6he2r%a$o@-$djcnvkz)rnk$bhpi4_f0h7ni)&"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -55,7 +54,7 @@ ROOT_URLCONF = "HM_Cocktails.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["C:/Users/usuario/Dropbox/My PC (DESKTOP-23VV5U8)/Documents/GitHub/LabSoft3/HM_Cocktails/HM_Cocktails/templates"],
+        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -74,6 +73,7 @@ WSGI_APPLICATION = "HM_Cocktails.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
@@ -84,8 +84,7 @@ DATABASES = {
        'PORT': '5432',
    }
 }
-
-
+ 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -98,6 +97,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
 ]
 
+AUTH_USER_MODEL = 'cocktails.Usuario'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
