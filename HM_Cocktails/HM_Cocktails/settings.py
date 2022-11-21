@@ -55,7 +55,7 @@ ROOT_URLCONF = "HM_Cocktails.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["C:/Users/usuario/Dropbox/My PC (DESKTOP-23VV5U8)/Documents/GitHub/LabSoft3/HM_Cocktails/HM_Cocktails/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
