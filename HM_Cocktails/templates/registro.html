@@ -7,11 +7,11 @@
     <div class='container px-4'>
 
         <div class='d-flex justify-content-center'>
-            <h3>Register</h3>
+            <h3>Registro</h3>
         </div>
 
-        {% if message %}
-            <div>{{ message }}</div>
+        {% if mensaje %}
+            <div>{{ mensaje }}</div>
         {% endif %}
 
         <div class='row'>
@@ -25,14 +25,14 @@
                                 {% csrf_token %}
                                 <div class='form-group'>
                                     <label for='inputUsername' class='form-label mt-4'>
-                                        Username
+                                        Usuario
                                     </label>
                                     <input type='text' name='username' class='form-control' id='inputUsername' placeholder='Enter username' autofocus>
                                 </div>
 
                                 <div class='form-group'>
                                     <label for='inputEmail' class='form-label mt-4'>
-                                        Email Address
+                                        Email
                                     </label>
                                     <input type='email' name='email' class='form-control' id='inputEmail' placeholder='Enter email'>
                                 </div>
@@ -46,22 +46,22 @@
 
                                 <div class='form-group'>
                                     <label for='inputPassword2' class='form-label mt-4'>
-                                        Confirm Password
+                                        Confirmat Password
                                     </label>
                                     <input type='password' name='confirmation' class='form-control' id='inputPassword2' placeholder='Confirm password'>
                                 </div>
 
                                 <div class='form-group mt-4'>
-                                    <button type='submit' class='btn btn-primary'>
-                                        Register
+                                    <button type='submit' class='btn btn-success'>
+                                        Regisrtar
                                     </button>
                                 </div>
 
                             </form>
 
                             <div class='mt-2'>
-                                Already have an account? <a href="{% url 'login' %}" type='button' class='btn btn-link'>
-                                    Log In here
+                                Ya tienes una cuenta? <a href="{% url 'login' %}" type='button' class='btn btn-link'>
+                                    Iniciar Sesion
                                 </a>
                             </div>
 

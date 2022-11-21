@@ -1,10 +1,10 @@
-{% block categories %}
+{% block categorias %}
 
-    {% for category in categories %}
+    {% for categoria in categorias %}
         <a class='dropdown-item' href="{% url 'category_details_view' category.category_name %}">
-            {{ category }} &nbsp;
+            {{ categoria }} &nbsp;
             <span class='badge-warning badge-pill'>
-                {{ category.count_food_by_category }}
+                {{ categoria.categoria_coctel }}
             </span>
         </a>
     {% endfor %}
