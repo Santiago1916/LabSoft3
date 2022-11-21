@@ -27,7 +27,7 @@ class CategoriaCoctel(models.Model):
 
 class Coctel(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID') 
-    nombre = models.TextField(max_length = 50, verbose_name = 'Nombre Coctel')
+    nombreCoctel = models.TextField(max_length = 50, verbose_name = 'Nombre Coctel')
     sinoAlcohol =  models.BooleanField(default = 'True')
     categoria = models.ForeignKey(CategoriaCoctel, on_delete=models.CASCADE, related_name="Cocteles categoria")
 
@@ -46,8 +46,8 @@ class Imagen(models.Model):
 
 class Licor(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID')
-    nombre = models.TextField(max_length = 50, verbose_name = 'Nombre del licor')
-    cantidad = models.IntegerField(verbose_name = 'Cantidad en ml del licor', default=0)
+    nombreLicor = models.TextField(max_length = 50, verbose_name = 'Nombre del licor')
+    cantidadLicor = models.IntegerField(verbose_name = 'Cantidad en ml del licor', default=0)
 
     def licorDatos(self):
         return "{}, {} {}".format(self.id,  self.nombre , self.cantidad)
@@ -57,8 +57,8 @@ class Licor(models.Model):
 
 class Diluidores(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID')
-    nombre = models.TextField(max_length = 50, verbose_name = 'Nombre del diluidor')
-    cantidad = models.IntegerField(verbose_name = 'Cantidad')
+    nombreDiluidor = models.TextField(max_length = 50, verbose_name = 'Nombre del diluidor')
+    cantidadDiluidor = models.IntegerField(verbose_name = 'Cantidad',default=0)
 
     def diluidoresDatos(self):
         return "{}, {} {}".format(self.id,  self.nombre , self.cantidad)
