@@ -5,9 +5,6 @@ from .models import Coctel, Licor,Diluidores, ComponentesCoctel, Imagen
 class ModeloCoctel(forms.ModelForm):
     class Meta:
         modelo = Coctel
-        modelo2 = Licor
-        modelo3 = Diluidores
-        modelo4 = comp
         campos = ['nombreCoctel', 'sinoAlcohol', 'nombreLicor', 'cantidadLicor', 'nombreDiluidor', 'cantidadDiluidor', 'categoria']
 
     def _init_(self, *args, **kwargs):
