@@ -69,8 +69,8 @@ class Diluidores(models.Model):
 class ComponentesCoctel(models.Model):
     id = models.BigAutoField(auto_created = True, primary_key = True, serialize = False, verbose_name = 'ID')
     idCoctel = models.ForeignKey(Coctel, null = True, blank = True, on_delete = models.CASCADE)
-    idLicorBase = models.ManyToManyField(Licor, null = True, blank = True, on_delete = models.CASCADE)
-    idDiluidores = models.ManyToManyField(Diluidores, null = True, blank = True, on_delete = models.CASCADE)
+    idLicorBase = models.ManyToManyField(Licor, null = True, blank = True)
+    idDiluidores = models.ManyToManyField(Diluidores, null = True, blank = True)
 
     def componenteDatos(self):
         return "{} {}, {} {} {}".format(self.id, self.idCoctel, self.idLicorBase, self.idLicorSecundario, self.idDiluidores)
@@ -89,8 +89,8 @@ class Favoritos(models.Model):
     def __str__(self):
         return self.favoritosDatos()
 
-
-
-
-""" Relaciones Foraneas entre modelos -> https://www.youtube.com/watch?v=y89VHGofsDQ"""
+'''Slate shades of gunmental gray -> https://bootswatch.com '''
+'''https://codigofacilito.com/articulos/django-user-model'''
+'''tipos de datos django -> https://www.geeksforgeeks.org/django-model-data-types-and-fields-list/'''
+''' Relaciones Foraneas entre modelos -> https://www.youtube.com/watch?v=y89VHGofsDQ'''
 '''Django & PostgreSQL CRUD -> https://www.youtube.com/watch?v=_zNZ1lK6RTA'''
